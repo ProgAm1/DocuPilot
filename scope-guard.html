@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocuPilot - Scope Guard</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+<div class="app-container">
+  
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="brand-logo">
+        <i class="fa-solid fa-layer-group text-accent" style="margin-bottom: 4px;"></i>
+        DocuPilot
+        <span class="brand-subtitle">Operational Hub</span>
+      </div>
+    </div>
+
+    <div class="nav-group">
+      <ul class="nav-list">
+        <li class="nav-item" onclick="window.location.href='index.html'">
+          <i class="fa-solid fa-border-all"></i> Dashboard
+        </li>
+        <li class="nav-item" onclick="window.location.href='projects.html'">
+          <i class="fa-solid fa-folder-open"></i> Projects
+        </li>
+        <li class="nav-item" onclick="window.location.href='srs.html'">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> SRS Generator
+        </li>
+        <li class="nav-item" onclick="window.location.href='contracts.html'">
+          <i class="fa-solid fa-file-signature"></i> Contracts
+        </li>
+        <li class="nav-item" onclick="window.location.href='approvals.html'">
+          <i class="fa-solid fa-file-invoice-dollar"></i> Invoices & Approvals
+        </li>
+        <li class="nav-item active" onclick="window.location.href='scope-guard.html'">
+          <i class="fa-solid fa-shield-halved"></i> Scope Guard
+        </li>
+        <li class="nav-item" onclick="window.location.href='risks.html'">
+          <i class="fa-solid fa-triangle-exclamation"></i> Risks
+        </li>
+      </ul>
+    </div>
+
+    <div class="nav-group" style="margin-top: auto; margin-bottom: 0;">
+      <div class="nav-label">Intelligence</div>
+      <ul class="nav-list">
+        <li class="nav-item" style="color: var(--accent-primary); background: rgba(99, 102, 241, 0.05); border-radius: var(--radius-md); margin: 0 var(--spacing-sm);" onclick="window.location.href='ask.html'">
+          <i class="fa-solid fa-robot"></i> Ask DocuPilot
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-footer" style="margin-top: var(--spacing-xl);">
+      <button class="btn btn-primary" style="width: calc(100% - 2rem); margin: 0 auto var(--spacing-md);">
+        <i class="fa-solid fa-plus"></i> New Project
+      </button>
+      <ul class="nav-list">
+        <li class="nav-item"><i class="fa-regular fa-circle-question"></i> Support</li>
+        <li class="nav-item text-danger"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search projects, contracts, or tasks...">
+      </div>
+      
+      <div class="topbar-actions">
+        <button class="action-btn" data-tooltip="Notifications">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notification-dot"></span>
+        </button>
+        <button class="action-btn" data-tooltip="Settings">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+        <div class="user-profile">
+          <div class="avatar">NX</div>
+          <span class="font-medium text-sm">NexaSoft Admin</span>
+          <i class="fa-solid fa-chevron-down text-xs text-muted"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-container animate-fade-in">
+      
+      <div class="page-header" style="flex-direction: column; align-items: flex-start; gap: var(--spacing-sm);">
+        <div class="text-xs text-muted font-bold" style="text-transform: uppercase;">Projects <i class="fa-solid fa-chevron-right" style="margin: 0 4px; font-size: 8px;"></i> Alpha Platform v2.0 <i class="fa-solid fa-chevron-right" style="margin: 0 4px; font-size: 8px;"></i> Scope Guard Analysis</div>
+        <div>
+          <h1 class="page-title">Scope Guard Analysis</h1>
+          <p class="page-subtitle">Real-time contract deviation detection and decision support.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2" style="margin-bottom: var(--spacing-lg);">
+        
+        <!-- Left Column: Incoming Request -->
+        <div class="card" style="display: flex; flex-direction: column;">
+          <div class="flex" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-xl);">
+            <div class="text-xs text-muted font-bold" style="text-transform: uppercase;">Incoming Request</div>
+            <div class="text-sm text-muted flex" style="display: flex; align-items: center; gap: 8px;"><i class="fa-regular fa-envelope"></i> Email Content</div>
+          </div>
+          
+          <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255,255,255,0.05); padding: var(--spacing-xl); border-radius: var(--radius-lg); margin-bottom: var(--spacing-lg); flex: 1; display: flex; align-items: center; justify-content: center;">
+            <p class="text-xl font-display text-primary" style="text-align: right; line-height: 1.8;" dir="rtl">
+              "ممكن تضيفون تطبيق جوال iOS و Android للمنصة؟"
+            </p>
+          </div>
+          
+          <div style="border-top: 1px solid var(--border-subtle); padding-top: var(--spacing-md);">
+            <div class="text-xs text-muted font-bold" style="text-transform: uppercase; margin-bottom: 8px;">English Translation</div>
+            <p class="text-sm font-medium">"Could you add iOS and Android mobile applications to the platform?"</p>
+          </div>
+        </div>
+
+        <!-- Right Column: Analysis Result -->
+        <div class="card" style="display: flex; flex-direction: column; padding: 0;">
+          
+          <!-- Banner -->
+          <div style="background: rgba(239, 68, 68, 0.1); padding: var(--spacing-lg); border-bottom: 1px solid rgba(239, 68, 68, 0.2); display: flex; justify-content: space-between; align-items: center;">
+            <div class="flex" style="display: flex; gap: var(--spacing-md); align-items: center;">
+              <div class="list-item-icon" style="background: var(--status-danger); color: white; width: 40px; height: 40px;">
+                <i class="fa-solid fa-ban"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-danger">Analysis Result</h3>
+                <div class="text-xs text-muted">Compared against Contract #CON-2024-089</div>
+              </div>
+            </div>
+            <span class="badge badge-danger" style="font-size: 0.8rem; padding: 6px 12px;">OUT OF SCOPE</span>
+          </div>
+
+          <div style="padding: var(--spacing-lg); flex: 1; display: flex; flex-direction: column; gap: var(--spacing-lg);">
+            
+            <!-- Primary Reason -->
+            <div>
+              <div class="text-xs text-muted font-bold" style="text-transform: uppercase; margin-bottom: var(--spacing-sm);">Primary Reason</div>
+              <div style="background: var(--bg-surface-elevated); border: var(--glass-border); padding: var(--spacing-md); border-radius: var(--radius-md); display: flex; gap: var(--spacing-md); align-items: flex-start;">
+                <i class="fa-solid fa-circle-info text-danger text-lg" style="margin-top: 2px;"></i>
+                <p class="text-sm">The current contract includes web platform and admin dashboard only. Mobile development for native OS requires separate infrastructure and UI/UX tracks not outlined in the Master Service Agreement.</p>
+              </div>
+            </div>
+
+            <!-- Impacts -->
+            <div class="grid grid-cols-2" style="gap: var(--spacing-md);">
+              <div style="border: var(--glass-border); padding: var(--spacing-md); border-radius: var(--radius-md);">
+                <div class="text-xs text-muted font-bold flex" style="display: flex; align-items: center; gap: 6px; text-transform: uppercase; margin-bottom: var(--spacing-sm);"><i class="fa-solid fa-clock-rotate-left text-warning"></i> Timeline</div>
+                <div class="font-bold">High Impact</div>
+                <div class="text-xs text-muted">+12-16 weeks est.</div>
+              </div>
+              <div style="border: var(--glass-border); padding: var(--spacing-md); border-radius: var(--radius-md);">
+                <div class="text-xs text-muted font-bold flex" style="display: flex; align-items: center; gap: 6px; text-transform: uppercase; margin-bottom: var(--spacing-sm);"><i class="fa-solid fa-money-bill-wave text-accent"></i> Cost</div>
+                <div class="font-bold">Requires Estimate</div>
+                <div class="text-xs text-muted">Not in current budget</div>
+              </div>
+            </div>
+
+            <!-- Suggested Action -->
+            <div style="background: rgba(99, 102, 241, 0.05); border: 1px solid rgba(99, 102, 241, 0.2); padding: var(--spacing-md); border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+              <div class="flex" style="display: flex; gap: var(--spacing-md); align-items: center;">
+                <div class="list-item-icon" style="background: var(--accent-primary); color: white; width: 32px; height: 32px;">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-accent font-bold" style="text-transform: uppercase;">AI Suggested Action</div>
+                  <div class="font-bold">Create Change Request</div>
+                </div>
+              </div>
+              <button class="btn btn-primary">Execute Action</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Suggested Client Reply -->
+      <div class="card" style="margin-bottom: var(--spacing-lg);">
+        <div class="flex" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-lg); padding-bottom: var(--spacing-md); border-bottom: 1px solid var(--border-subtle);">
+          <div class="font-bold flex" style="display: flex; align-items: center; gap: 8px;"><i class="fa-regular fa-comment-dots text-accent"></i> Suggested Client Reply</div>
+          <button class="btn btn-ghost text-xs"><i class="fa-regular fa-copy"></i> Copy to Clipboard</button>
+        </div>
+        <div class="text-sm" style="line-height: 1.8; color: var(--text-secondary); padding: 0 var(--spacing-xl);">
+          <p style="margin-bottom: var(--spacing-md);">Dear Client,</p>
+          <p style="margin-bottom: var(--spacing-md);">Thank you for reaching out about the possibility of adding iOS and Android mobile applications to the NexaSoft platform. We appreciate the vision for cross-platform expansion.</p>
+          <p style="margin-bottom: var(--spacing-md);">After reviewing the current project scope (Contract #CON-2024-089), we confirmed that the existing engagement covers the Web Platform and Administrative Dashboard only. Developing native mobile applications is currently considered <strong class="text-danger">out of scope</strong>.</p>
+          <p style="margin-bottom: var(--spacing-md);">However, we would be happy to accommodate this! I have initiated a <strong class="text-accent">Change Request</strong>. Our team will provide a formal estimate for the additional timeline and cost by end of business Thursday.</p>
+          <p>Best regards,<br><strong>Project Management Team</strong></p>
+        </div>
+      </div>
+
+      <!-- Bottom Stats Row -->
+      <div class="grid grid-cols-3">
+        <div class="card">
+          <div class="font-bold flex" style="display: flex; align-items: center; gap: 8px; margin-bottom: var(--spacing-md);"><i class="fa-solid fa-file-contract text-accent"></i> Contract Snapshot</div>
+          <div class="flex" style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+            <span class="text-sm text-muted">Total Budget</span>
+            <span class="font-bold">$245,000</span>
+          </div>
+          <div class="flex" style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-xs);">
+            <span class="text-sm text-muted">Consumption</span>
+            <span class="font-bold">62%</span>
+          </div>
+          <div class="progress-container" style="height: 4px;">
+            <div class="progress-bar progress-primary" style="width: 62%;"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="font-bold flex" style="display: flex; align-items: center; gap: 8px; margin-bottom: var(--spacing-md);"><i class="fa-solid fa-clock-rotate-left text-accent"></i> Similar Requests</div>
+          <ul style="list-style-type: disc; padding-left: var(--spacing-lg); color: var(--text-muted); font-size: 0.875rem;">
+            <li style="margin-bottom: 4px;">Dark Mode Request <span class="text-success text-xs">(In-Scope)</span></li>
+            <li>Export to PDF <span class="text-success text-xs">(In-Scope)</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="font-bold flex" style="display: flex; align-items: center; gap: 8px; margin-bottom: var(--spacing-md);"><i class="fa-solid fa-users text-accent"></i> Stakeholder Trust</div>
+          <div class="flex" style="display: flex; align-items: center; gap: var(--spacing-md); margin-top: var(--spacing-lg);">
+            <div class="flex" style="display: flex; gap: -8px;">
+              <div class="avatar" style="width: 36px; height: 36px; border: 2px solid var(--bg-surface); z-index: 3;">AD</div>
+              <div class="avatar" style="width: 36px; height: 36px; border: 2px solid var(--bg-surface); background: var(--status-info); z-index: 2; margin-left: -8px;">MK</div>
+            </div>
+            <span class="text-sm text-muted font-bold">+4 Approvers</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

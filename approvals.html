@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocuPilot - Approvals / Invoice Review</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .document-preview {
+      background: #FFFFFF; /* Hard white to simulate paper, even in dark mode */
+      color: #111827; /* Dark text for contrast */
+      border-radius: var(--radius-md);
+      padding: var(--spacing-2xl);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      min-height: 800px;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .invoice-header {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 2px solid #E5E7EB;
+      padding-bottom: var(--spacing-xl);
+      margin-bottom: var(--spacing-xl);
+    }
+    
+    .invoice-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--spacing-xl);
+    }
+    
+    .invoice-table th {
+      text-align: left;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      color: #6B7280;
+      border-bottom: 1px solid #E5E7EB;
+      padding-bottom: 8px;
+    }
+    
+    .invoice-table td {
+      padding: 16px 0;
+      border-bottom: 1px solid #E5E7EB;
+      font-size: 0.875rem;
+    }
+    
+    .btn-approve {
+      background: var(--status-success);
+      color: white;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      border-radius: var(--radius-md);
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    }
+    .btn-approve:hover {
+      background: #059669;
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="brand-logo">
+        <i class="fa-solid fa-layer-group text-accent" style="margin-bottom: 4px;"></i>
+        DocuPilot
+        <span class="brand-subtitle">Operational Hub</span>
+      </div>
+    </div>
+
+    <div class="nav-group">
+      <ul class="nav-list">
+        <li class="nav-item" onclick="window.location.href='index.html'">
+          <i class="fa-solid fa-border-all"></i> Dashboard
+        </li>
+        <li class="nav-item" onclick="window.location.href='projects.html'">
+          <i class="fa-solid fa-folder-open"></i> Projects
+        </li>
+        <li class="nav-item" onclick="window.location.href='srs.html'">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> SRS Generator
+        </li>
+        <li class="nav-item" onclick="window.location.href='contracts.html'">
+          <i class="fa-solid fa-file-signature"></i> Contracts
+        </li>
+        <li class="nav-item active" onclick="window.location.href='approvals.html'">
+          <i class="fa-solid fa-file-invoice-dollar"></i> Invoices & Approvals
+        </li>
+        <li class="nav-item" onclick="window.location.href='scope-guard.html'">
+          <i class="fa-solid fa-shield-halved"></i> Scope Guard
+        </li>
+        <li class="nav-item" onclick="window.location.href='risks.html'">
+          <i class="fa-solid fa-triangle-exclamation"></i> Risks
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search approvals...">
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-container animate-fade-in">
+      
+      <div class="page-header">
+        <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 8px;">
+          <a href="#" style="color: var(--text-muted);">Approvals</a> / <a href="#" style="color: var(--text-muted);">Invoice Review</a>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+          <h1 class="page-title text-display">Invoice Review: INV-2026-042</h1>
+          <span class="badge badge-warning" style="font-size: 0.875rem; padding: 0.5rem 1rem;">NEEDS APPROVAL</span>
+        </div>
+      </div>
+
+      <div class="layout-sidebar-right" style="grid-template-columns: 1fr 400px;">
+        
+        <!-- Left Column (Document Preview) -->
+        <div class="flex-col" style="background: var(--bg-main); padding: var(--spacing-xl); border-radius: var(--radius-lg); display: flex; justify-content: center; align-items: flex-start; overflow-y: auto;">
+          
+          <div style="width: 100%; max-width: 700px; position: relative;">
+            <div style="position: absolute; top: -16px; left: 0; background: var(--bg-surface-elevated); color: var(--text-secondary); padding: 4px 12px; border-radius: 16px; font-size: 0.75rem; display: flex; align-items: center; gap: 6px; box-shadow: var(--shadow-sm);">
+              <i class="fa-regular fa-eye"></i> PREVIEW MODE
+            </div>
+            
+            <!-- White Paper Document -->
+            <div class="document-preview">
+              <div class="invoice-header">
+                <div>
+                  <h2 style="font-size: 2rem; color: #111827; margin-bottom: 8px;">DesignPro Studio</h2>
+                  <div style="color: #6B7280; font-size: 0.875rem; line-height: 1.6;">
+                    44 Creative Ave, Silicon District<br>
+                    Riyadh, Saudi Arabia
+                  </div>
+                </div>
+                <div style="text-align: right;">
+                  <div style="color: #6B7280; font-weight: 600; text-transform: uppercase; font-size: 0.875rem; letter-spacing: 1px;">Invoice</div>
+                  <div style="font-size: 1.5rem; color: var(--accent-primary); font-weight: 700; font-family: var(--font-display);">#65442</div>
+                </div>
+              </div>
+              
+              <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-2xl);">
+                <div>
+                  <div style="color: #6B7280; font-size: 0.75rem; text-transform: uppercase; font-weight: 600; margin-bottom: 4px;">Bill To</div>
+                  <div style="font-weight: 600; color: #111827;">NexaSoft Operations</div>
+                </div>
+                <div style="text-align: right;">
+                  <div style="color: #6B7280; font-size: 0.75rem; text-transform: uppercase; font-weight: 600; margin-bottom: 4px;">Issue Date</div>
+                  <div style="font-weight: 600; color: #111827;">May 01, 2026</div>
+                </div>
+              </div>
+
+              <table class="invoice-table">
+                <thead>
+                  <tr>
+                    <th>Description</th>
+                    <th style="text-align: right;">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div style="font-weight: 600; color: #111827;">UI Design - Milestone 2</div>
+                      <div style="font-size: 0.75rem; color: #6B7280; font-style: italic;">Clinic Booking Platform - Mobile App</div>
+                    </td>
+                    <td style="text-align: right; font-weight: 600;">6,500.00 SAR</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div style="margin-top: 150px; border-top: 2px solid #111827; padding-top: var(--spacing-md); display: flex; justify-content: space-between; align-items: flex-end;">
+                <div style="font-size: 0.875rem; color: #6B7280;">Payment Term: Net 15</div>
+                <div style="text-align: right;">
+                  <div style="font-size: 0.75rem; text-transform: uppercase; color: #6B7280; font-weight: 600;">Total Balance Due</div>
+                  <div style="font-size: 2rem; font-weight: 800; color: #111827; font-family: var(--font-display);">6,500 SAR</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column (Extraction & AI Reasoning) -->
+        <div class="flex-col" style="display: flex; flex-direction: column; gap: var(--spacing-xl);">
+          
+          <!-- Extracted Data -->
+          <div class="card">
+            <div class="card-header" style="border-bottom: 1px solid var(--border-subtle); padding-bottom: var(--spacing-md);">
+              <h2 class="card-title"><i class="fa-solid fa-wand-magic-sparkles text-accent" style="margin-right: 8px;"></i> Extracted Data</h2>
+            </div>
+            
+            <div style="padding-top: var(--spacing-md);">
+              <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-md);">
+                <div>
+                  <div class="text-xs text-muted font-bold" style="text-transform: uppercase;">Vendor</div>
+                  <div class="font-medium text-lg">DesignPro Studio</div>
+                </div>
+                <div style="text-align: right;">
+                  <div class="text-xs text-muted font-bold" style="text-transform: uppercase;">Service</div>
+                  <div class="font-medium">UI Design</div>
+                </div>
+              </div>
+              
+              <div style="background: var(--bg-main); padding: var(--spacing-md); border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--border-subtle); margin-bottom: var(--spacing-md);">
+                <div>
+                  <div class="text-xs text-muted font-bold" style="text-transform: uppercase;">Amount</div>
+                  <div class="text-xl font-bold text-accent">6,500 SAR</div>
+                </div>
+                <div style="text-align: right;">
+                  <div class="text-xs text-muted font-bold" style="text-transform: uppercase;">Due Date</div>
+                  <div class="font-medium">15 May 2026</div>
+                </div>
+              </div>
+
+              <div>
+                <div class="text-xs text-muted font-bold" style="text-transform: uppercase; margin-bottom: 4px;">Related Project</div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <i class="fa-solid fa-link text-muted"></i>
+                  <span class="font-medium">Clinic Booking Platform</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Reasoning -->
+          <div class="card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent); border-color: rgba(59, 130, 246, 0.3);">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: var(--spacing-md);">
+              <i class="fa-solid fa-microchip text-info" style="color: var(--status-info);"></i>
+              <span class="text-xs font-bold" style="text-transform: uppercase; letter-spacing: 1px; color: var(--status-info);">AI Reasoning</span>
+            </div>
+            <p class="text-sm" style="line-height: 1.6;">
+              Amount is above the internal approval limit of 5,000 SAR. Verified vendor details against project contract #CP-2026-88.
+            </p>
+            <i class="fa-solid fa-brain" style="position: absolute; top: 10px; right: 10px; font-size: 4rem; opacity: 0.05; color: var(--status-info);"></i>
+          </div>
+
+          <!-- Actions -->
+          <div class="card" style="position: sticky; top: 80px;">
+            <div class="text-xs text-muted font-bold" style="text-transform: uppercase; margin-bottom: var(--spacing-md);">Required Action</div>
+            
+            <button class="btn btn-approve btn" style="margin-bottom: var(--spacing-md);">
+              <i class="fa-solid fa-check-circle"></i> Approve
+            </button>
+            
+            <div style="display: flex; gap: var(--spacing-md);">
+              <button class="btn btn-secondary" style="flex: 1;"><i class="fa-solid fa-clock-rotate-left"></i> Needs Review</button>
+              <button class="btn btn-danger" style="flex: 1;"><i class="fa-solid fa-circle-xmark"></i> Reject</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

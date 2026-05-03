@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocuPilot - Operational Risks</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+<div class="app-container">
+  
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="brand-logo">
+        <i class="fa-solid fa-layer-group text-accent" style="margin-bottom: 4px;"></i>
+        DocuPilot
+        <span class="brand-subtitle">Operational Hub</span>
+      </div>
+    </div>
+
+    <div class="nav-group">
+      <ul class="nav-list">
+        <li class="nav-item" onclick="window.location.href='index.html'">
+          <i class="fa-solid fa-border-all"></i> Dashboard
+        </li>
+        <li class="nav-item" onclick="window.location.href='projects.html'">
+          <i class="fa-solid fa-folder-open"></i> Projects
+        </li>
+        <li class="nav-item" onclick="window.location.href='srs.html'">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> SRS Generator
+        </li>
+        <li class="nav-item" onclick="window.location.href='contracts.html'">
+          <i class="fa-solid fa-file-signature"></i> Contracts
+        </li>
+        <li class="nav-item" onclick="window.location.href='approvals.html'">
+          <i class="fa-solid fa-file-invoice-dollar"></i> Invoices & Approvals
+        </li>
+        <li class="nav-item" onclick="window.location.href='scope-guard.html'">
+          <i class="fa-solid fa-shield-halved"></i> Scope Guard
+        </li>
+        <li class="nav-item active" onclick="window.location.href='risks.html'">
+          <i class="fa-solid fa-triangle-exclamation"></i> Risks
+        </li>
+      </ul>
+    </div>
+
+    <div class="nav-group" style="margin-top: auto; margin-bottom: 0;">
+      <div class="nav-label">Intelligence</div>
+      <ul class="nav-list">
+        <li class="nav-item" style="color: var(--accent-primary); background: rgba(99, 102, 241, 0.05); border-radius: var(--radius-md); margin: 0 var(--spacing-sm);" onclick="window.location.href='ask.html'">
+          <i class="fa-solid fa-robot"></i> Ask DocuPilot
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-footer" style="margin-top: var(--spacing-xl);">
+      <button class="btn btn-primary" style="width: calc(100% - 2rem); margin: 0 auto var(--spacing-md);">
+        <i class="fa-solid fa-plus"></i> New Project
+      </button>
+      <ul class="nav-list">
+        <li class="nav-item"><i class="fa-regular fa-circle-question"></i> Support</li>
+        <li class="nav-item text-danger"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search projects, contracts, or tasks...">
+      </div>
+      
+      <div class="topbar-actions">
+        <button class="action-btn" data-tooltip="Notifications">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notification-dot"></span>
+        </button>
+        <button class="action-btn" data-tooltip="Settings">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+        <div class="user-profile">
+          <div class="avatar">NX</div>
+          <span class="font-medium text-sm">NexaSoft Admin</span>
+          <i class="fa-solid fa-chevron-down text-xs text-muted"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-container animate-fade-in">
+      
+      <div class="page-header" style="justify-content: space-between; align-items: flex-start;">
+        <div style="max-width: 60%;">
+          <h1 class="page-title">Operational Risk Overview</h1>
+          <p class="page-subtitle">Real-time exposure monitoring across active projects. Analyze potential slippage and scope threats before they impact delivery.</p>
+        </div>
+        <div class="flex" style="display: flex; gap: var(--spacing-sm); background: var(--bg-surface-elevated); padding: var(--spacing-xs); border-radius: var(--radius-md); border: var(--glass-border);">
+          <button class="btn btn-ghost" style="background: var(--bg-surface-glass); color: var(--text-primary);">All</button>
+          <button class="btn btn-ghost">High</button>
+          <button class="btn btn-ghost">Medium</button>
+          <button class="btn btn-ghost">Low</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2" style="margin-bottom: var(--spacing-xl);">
+        
+        <!-- High Risk Card 1 -->
+        <div class="card" style="display: flex; flex-direction: column;">
+          <div class="flex" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--spacing-lg);">
+            <div class="flex" style="display: flex; gap: var(--spacing-md); align-items: flex-start;">
+              <div class="list-item-icon" style="background: rgba(239, 68, 68, 0.1); color: var(--status-danger); width: 48px; height: 48px; font-size: 1.5rem;">
+                <i class="fa-solid fa-circle-exclamation"></i>
+              </div>
+              <div>
+                <span class="badge badge-danger" style="margin-bottom: var(--spacing-xs);">HIGH SEVERITY</span>
+                <h2 class="text-xl font-bold">Late delivery penalty (Clinic Booking Platform)</h2>
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <div class="text-xs text-muted font-bold" style="text-transform: uppercase;">Exposure</div>
+              <div class="text-xl font-bold text-danger">Penalty 10%</div>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-3" style="gap: var(--spacing-md); margin-bottom: var(--spacing-xl); padding-bottom: var(--spacing-lg); border-bottom: 1px solid var(--border-subtle);">
+            <div>
+              <div class="text-xs text-muted font-bold" style="text-transform: uppercase; margin-bottom: 4px;">Source</div>
+              <div class="text-sm flex" style="display: flex; gap: 8px; align-items: center;"><i class="fa-solid fa-clock-rotate-left"></i> Contract Milestone Breach</div>
+            </div>
+            <div>
+              <div class="text-xs text-muted font-bold" style="text-transform: uppercase; margin-bottom: 4px;">Impact</div>
+              <div class="text-sm">Immediate revenue reduction on Q4 projected earnings.</div>
+            </div>
+            <div>
+              <div class="text-xs text-muted font-bold" style="text-transform: uppercase; margin-bottom: 4px;">Related Project</div>
+              <div class="text-sm text-accent flex" style="display: flex; gap: 8px; align-items: center; cursor: pointer;"><i class="fa-solid fa-briefcase-medical"></i> Clinic Booking Platform</div>
+            </div>
+          </div>
+          
+          <div class="flex" style="display: flex; justify-content: space-between; align-items: center; background: rgba(99, 102, 241, 0.05); padding: var(--spacing-md); border-radius: var(--radius-md); border: 1px solid rgba(99, 102, 241, 0.1);">
+            <div class="flex" style="display: flex; gap: var(--spacing-sm); align-items: center;">
+              <i class="fa-regular fa-lightbulb text-accent text-lg"></i>
+              <div class="text-sm"><strong>Suggested Action:</strong> Trigger Force Majeure clause review or initiate stakeholder re-negotiation.</div>
+            </div>
+            <button class="btn btn-primary" style="white-space: nowrap;">Resolve Now <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- High Risk Card 2 -->
+        <div class="card" style="display: flex; flex-direction: column;">
+          <div class="flex" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--spacing-lg);">
+            <div>
+              <span class="badge badge-danger" style="margin-bottom: var(--spacing-xs);">HIGH SEVERITY</span>
+              <h2 class="text-xl font-bold">Out-of-scope mobile app request</h2>
+            </div>
+            <i class="fa-solid fa-triangle-exclamation text-danger text-2xl"></i>
+          </div>
+          
+          <p class="text-muted text-sm" style="margin-bottom: var(--spacing-lg);">Potential scope creep identified in recent client communication regarding cross-platform push notifications.</p>
+          
+          <div style="background: var(--bg-surface-elevated); padding: var(--spacing-md); border-radius: var(--radius-md); border: var(--glass-border); margin-bottom: var(--spacing-lg);">
+            <div class="text-xs text-muted font-bold" style="text-transform: uppercase; margin-bottom: 4px;">Impact</div>
+            <div class="text-sm font-medium">Estimated 80 extra dev hours not currently in SOW.</div>
+          </div>
+          
+          <div class="flex" style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+            <div>
+              <span class="text-xs text-muted font-bold" style="text-transform: uppercase; margin-right: 8px;">Project:</span>
+              <span class="text-sm font-bold">OMNIMOBILE</span>
+            </div>
+            <div class="flex" style="display: flex; gap: var(--spacing-md); align-items: center;">
+              <a href="#" class="text-sm font-bold">View SOW</a>
+              <button class="btn btn-secondary" style="background: rgba(255, 255, 255, 0.05);">Flag for Billing</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Medium Risk Card 1 -->
+        <div class="card" style="display: flex; flex-direction: column;">
+          <div class="flex" style="display: flex; align-items: flex-start; gap: var(--spacing-md); margin-bottom: var(--spacing-lg);">
+            <div class="list-item-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--status-warning); width: 48px; height: 48px; font-size: 1.25rem;">
+              <i class="fa-solid fa-file-invoice-dollar"></i>
+            </div>
+            <div style="flex: 1;">
+              <span class="badge badge-warning" style="margin-bottom: var(--spacing-xs);">MEDIUM SEVERITY</span>
+              <h2 class="text-lg font-bold">Invoice pending approval</h2>
+            </div>
+          </div>
+          
+          <div class="flex" style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-md);">
+            <div>
+              <div class="text-xs text-muted font-bold">Related Project</div>
+              <div class="font-bold">DesignPro Studio Rebrand</div>
+            </div>
+            <div style="text-align: right;">
+              <div class="text-xs text-muted font-bold">Source</div>
+              <div class="font-bold">Finance Portal</div>
+            </div>
+          </div>
+          
+          <p class="text-muted text-sm font-italic" style="font-style: italic; margin-bottom: var(--spacing-xl);">"Approval delayed due to missing tax ID on the primary vendor profile. Payment cycle at risk."</p>
+          
+          <div class="flex" style="display: flex; gap: var(--spacing-md); margin-top: auto;">
+            <button class="btn btn-secondary" style="flex: 1;">Remind Client</button>
+            <button class="btn" style="flex: 1; background: rgba(245, 158, 11, 0.1); color: var(--status-warning); border: 1px solid rgba(245, 158, 11, 0.3);">Update Info</button>
+          </div>
+        </div>
+
+        <!-- Medium Risk Card 2 -->
+        <div class="card" style="display: flex; flex-direction: column;">
+          <div class="flex" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--spacing-lg);">
+            <div>
+              <span class="badge badge-warning" style="margin-bottom: var(--spacing-xs);">MEDIUM SEVERITY</span>
+              <h2 class="text-lg font-bold">Missing client confirmation on API docs</h2>
+            </div>
+            <i class="fa-solid fa-clipboard-question text-warning text-2xl"></i>
+          </div>
+          
+          <div class="grid grid-cols-2" style="gap: var(--spacing-md); margin-bottom: var(--spacing-xl);">
+            <div style="background: rgba(16, 185, 129, 0.05); padding: var(--spacing-md); border-radius: var(--radius-md); border: 1px solid rgba(16, 185, 129, 0.1);">
+              <div class="text-xs text-muted font-bold" style="text-transform: uppercase; margin-bottom: 4px;">Suggested Action</div>
+              <div class="text-sm">Hold sprint kickoff until sign-off is secured via DocuPilot.</div>
+            </div>
+            <div style="background: var(--bg-surface-elevated); padding: var(--spacing-md); border-radius: var(--radius-md); border: var(--glass-border);">
+              <div class="text-xs text-muted font-bold" style="text-transform: uppercase; margin-bottom: 4px;">Project</div>
+              <div class="text-sm">Legacy Integration v2</div>
+            </div>
+          </div>
+          
+          <div class="flex" style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+            <div class="flex" style="display: flex; gap: -8px;">
+              <div class="avatar" style="width: 28px; height: 28px; font-size: 0.7rem; border: 2px solid var(--bg-surface); z-index: 3;">JS</div>
+              <div class="avatar" style="width: 28px; height: 28px; font-size: 0.7rem; border: 2px solid var(--bg-surface); background: var(--status-info); z-index: 2; margin-left: -8px;">MK</div>
+              <div class="avatar" style="width: 28px; height: 28px; font-size: 0.7rem; border: 2px solid var(--bg-surface); background: var(--bg-surface-elevated); color: var(--text-muted); z-index: 1; margin-left: -8px;">+3</div>
+            </div>
+            <a href="#" class="text-sm font-bold flex" style="display: flex; align-items: center; gap: 4px;">Send Reminder <i class="fa-solid fa-paper-plane"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Stat Cards Bottom Row -->
+      <div class="grid grid-cols-4">
+        <div class="card stat-card">
+          <div class="text-xs text-muted font-bold" style="text-transform: uppercase;">Total Risk Items</div>
+          <div class="stat-value" style="font-size: 3rem;">24</div>
+        </div>
+        <div class="card stat-card" style="border-left: 2px solid var(--status-danger);">
+          <div class="text-xs text-danger font-bold" style="text-transform: uppercase;">Critical (High)</div>
+          <div class="stat-value text-danger" style="font-size: 3rem;">02</div>
+        </div>
+        <div class="card stat-card" style="border-left: 2px solid var(--status-warning);">
+          <div class="text-xs text-warning font-bold" style="text-transform: uppercase;">Attention (Mid)</div>
+          <div class="stat-value text-warning" style="font-size: 3rem;">14</div>
+        </div>
+        <div class="card stat-card" style="border-left: 2px solid var(--status-success);">
+          <div class="text-xs text-success font-bold" style="text-transform: uppercase;">Mitigated Today</div>
+          <div class="stat-value text-success" style="font-size: 3rem;">08</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

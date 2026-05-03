@@ -1,0 +1,12 @@
+{
+  "name": "docupilot-ui",
+  "version": "1.0.0",
+  "description": "DocuPilot Operational Hub UI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
