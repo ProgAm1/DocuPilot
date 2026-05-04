@@ -358,13 +358,29 @@ If the API returns a 500 with a foreign key violation, confirm that `clinic-book
 
 ### Environment Variables Required
 
+Copy `.env.example` to `.env.local` and fill in your own keys:
+
+```powershell
+# PowerShell
+Copy-Item .env.example .env.local
+```
+
+```bash
+# macOS / Linux
+cp .env.example .env.local
+```
+
+Required keys:
+
 ```env
 GEMINI_API_KEY=
 SUPABASE_URL=
 SUPABASE_SERVICE_ROLE_KEY=
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
 ```
 
-`SUPABASE_SERVICE_ROLE_KEY` is server-side only — never prefix it with `NEXT_PUBLIC_`.
+`GEMINI_API_KEY` and `SUPABASE_SERVICE_ROLE_KEY` are server-side only — never prefix them with `NEXT_PUBLIC_`. `.env.local` is gitignored; `.env.example` is the committed template.
 
 ### What Remains Placeholder
 
