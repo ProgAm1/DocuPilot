@@ -309,7 +309,7 @@ const FALLBACK_DATA: ContractAnalysisOutput = {
 
 export async function POST(req: Request) {
   try {
-    const { projectId, contractText } = await req.json();
+    const { projectId, contractText, depth = 'standard' } = await req.json();
 
     if (!contractText || contractText.trim().length < 50) {
       return NextResponse.json(
@@ -322,7 +322,7 @@ export async function POST(req: Request) {
     try {
       const response = await gemini.models.generateContent({
         model: GEMINI_PRO_MODEL,
-        contents: buildContractPrompt(contractText),
+        contents: buildContractPrompt(contractText, depth as 'quick' | 'standard' | 'deep'),
         config: {
           responseMimeType: "application/json",
           responseSchema: CONTRACT_RESPONSE_SCHEMA,

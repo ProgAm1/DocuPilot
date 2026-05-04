@@ -1,6 +1,14 @@
-export function buildContractPrompt(contractText: string) {
+export function buildContractPrompt(contractText: string, depth: 'quick' | 'standard' | 'deep' = 'standard') {
+  const depthInstruction = {
+    quick:    'Focus on the most critical items only. Return 1–2 items per array. Prioritise speed over completeness.',
+    standard: 'Provide a balanced analysis. Return 2–4 items per array.',
+    deep:     'Perform a thorough, exhaustive analysis. Extract every item you find. Return as many items as the contract contains.',
+  }[depth];
+
   return `
 You are DocuPilot Contract-to-Actions AI.
+
+Extraction depth: ${depth.toUpperCase()} — ${depthInstruction}
 
 Analyze the contract below and return ONE JSON object with EXACTLY the structure shown.
 
