@@ -73,7 +73,7 @@ Follow the SRS pattern:
 
 ## Environment Variables
 
-Stored in `.env` (gitignored). See `.env.local.example` for required vars:
+Stored in `.env.local` (gitignored). See `.env.local.example` for required vars:
 
 | Variable | Required | Description |
 |----------|----------|-------------|
@@ -90,7 +90,7 @@ Stored in `.env` (gitignored). See `.env.local.example` for required vars:
 3. **Dark sidebar, light content area.** The sidebar uses `--bg-sidebar` (dark slate). Main content uses `--bg-main` (off-white). Maintain this contrast.
 4. **Arabic/RTL support matters.** Client input examples are in Arabic. Use `dir="rtl"` on Arabic text blocks. The app detects language and displays bilingual content.
 5. **Font Awesome for icons.** Use `fa-solid fa-*` / `fa-regular fa-*` classes. Do NOT add lucide-react icons or SVGs unless explicitly asked.
-6. **No env secrets in code.** API keys come from `.env` — never commit them. The `.env` file is gitignored.
+6. **No env secrets in code.** API keys come from `.env.local` — never commit them. The `.env.local` file is gitignored.
 7. **Never add yourself as a contributor.** When committing or pushing code, do NOT add Claude/AI as a co-author, contributor, or in any attribution. Commits should only credit the human developers.
 8. **Zod 4 constraints.** This project uses Zod 4 (`zod@^4.4.3`). Do NOT use `zod-to-json-schema` — it's incompatible. Write JSON schemas manually as plain objects.
 9. **Non-blocking persistence.** Database writes must never cause an API route to fail. Always wrap Supabase calls in try/catch.
